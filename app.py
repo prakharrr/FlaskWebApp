@@ -8,8 +8,9 @@ app = Flask(__name__)
 def hello_world():
     return render_template('index.html')
 
-@app.route('/about')
-def rou
+@app.route('/sources')
+def sources():
+    return render_template('sources.html')
 
 
 if __name__ == '__main__':
