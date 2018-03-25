@@ -21,20 +21,20 @@ def hello_world():
     return render_template('index.html')
 
 
-@app.route('/weather')
-def get_weather(query):
-    api_url = "api.openweathermap.org/data/2.5/weather?zip=14623,us"
-    query = urllib.parse.quote(query)
-    url = api_url.format(query)
-    data = urllib.request.urlopen(url).read()
-    parsed = json.loads(data.decode("utf-8"))
-    weather = None
-    if parsed.get("weather"):
-        weather = {"description": parsed["weather"][0]["description"],
-                   "temperature": parsed["main"]["temp"],
-                   "city": parsed["name"]
-                   }
-    return render_template('weather.html')
+# @app.route('/weather')
+# def get_weather(query):
+#     api_url = "api.openweathermap.org/data/2.5/weather?zip=14623,us"
+#     query = urllib.parse.quote(query)
+#     url = api_url.format(query)
+#     data = urllib.request.urlopen(url).read()
+#     parsed = json.loads(data.decode("utf-8"))
+#     weather = None
+#     if parsed.get("weather"):
+#         weather = {"description": parsed["weather"][0]["description"],
+#                    "temperature": parsed["main"]["temp"],
+#                    "city": parsed["name"]
+#                    }
+#     return render_template('weather.html')
 
 
 @app.route('/filter')
